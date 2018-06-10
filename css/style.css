@@ -456,4 +456,10 @@ header nav ul li:nth-child(5) {
     .parallax {
         height: 300px;
     }
+    
+    .footer_right_bar input[type=submit] {
+        width: 94%;
+        margin: 0 auto;
+        float: none;
+    }
 }
