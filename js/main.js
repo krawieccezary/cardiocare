@@ -29,7 +29,8 @@ $(document).ready(function () {
             var heightNav = $('.nav').css('height');
             var link = event.target.dataset.action;
             /* var heightNavNumber = parseInt(heightNav); */
-            var divTop = $('#' + link).offset().top;
+            var div = $('#' + link);
+            var divTop = div.offset().top;
             var scrollPosition = divTop - parseInt(heightNav);
         }
         $('html, body').animate({
@@ -45,13 +46,13 @@ $(document).ready(function () {
 
     /***BURGER_NAV***/
 
-    var homeButton = document.getElementsByClassName('home');
 
     var menuButton = document.getElementById('burger_nav');
 
     menuButton.addEventListener('click', openMenu);
 
     function openMenu() {
+    
         var menu = document.querySelector('header nav ul');
         menu.classList.toggle('open');
         menuButton.classList.toggle('active');
