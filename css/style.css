@@ -120,8 +120,8 @@ header nav ul li a::before {
 
 .home {
     background: url(../img/arrow_up.jpg) no-repeat center center;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     text-decoration: none;
     background-size: cover;
     z-index: 2;
@@ -153,9 +153,9 @@ h2 {
 
 .tekst {
     margin: 0 10px;
-    text-align: justify;
+    text-align: center;
     line-height: 25px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 #o_nas .zdjecie {
@@ -337,7 +337,7 @@ header nav ul li:nth-child(5) {
 
 /******MEDIA QUERIES******/
 
-@media screen and (max-width: 875px) {
+@media screen and (max-width: 970px) {
      #burger_nav {
         margin-right: 10px;
         padding: 0;
@@ -434,7 +434,7 @@ header nav ul li:nth-child(5) {
     
     .home {
         top: 10px;
-        left: 40px;
+        left: 60px;
     }
 }
 
