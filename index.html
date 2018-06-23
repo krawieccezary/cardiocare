@@ -4,79 +4,80 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
+    <meta name="Author" content="Cezary Krawiec"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta>
     <title>Cardiocare</title>
+    <link rel="stylesheet" href="css/badania.css">
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/animate.min.css">
 
 </head>
 
 <body>
     <header>
         <div class="image_header">
-            <nav class="nav">
+            <nav>
                 <div id="burger_nav">
                     <span class='line'></span>
                     <span class='line'></span>
                     <span class='line'></span>
                 </div>
-                <a data-action="top" href="#" class="home"></a>
+                <button data-action="top" class="home"></button>
                 <ul>
-                    <li class="animate-pop-in"><a data-action="o_nas" href="#">o nas</a></li>
-                    <li class="animate-pop-in"><a data-action="badania_kierowcow" href="#">badania kierowców</a></li>
-                    <li class="animate-pop-in"><a data-action="pozwolenie_na_bron" href="#">pozwolenie na broń</a></li>
-                    <li class="animate-pop-in"><a data-action="badania" href="#">działalność badawcza</a></li>
-                    <li class="animate-pop-in"><a data-action="kontakt" href="#">kontakt</a></li>
+                    <li class="animate-pop-in"><a data-action="o_nas" href="home.html">o nas</a></li>
+                    <li class="animate-pop-in"><a data-action="badania_kierowcow" href="home.html">badania kierowców</a></li>
+                    <li class="animate-pop-in"><a data-action="pozwolenie_na_bron" href="home.html">pozwolenie na broń</a></li>
+                    <li class="animate-pop-in"><a class='badania' data-action="badania" href="badania.html">działalność badawcza</a></li>
+                    <li class="animate-pop-in"><a data-action="kontakt" href="home.html">kontakt</a></li>
                 </ul>
             </nav>
-            <h1 class="header animate-grow-up">cardiocare</h1>
-            <p class="header_p animate-grow-up">Przeprowadzamy okresowe badania kierowców oraz kompleksowe badania lekarskie i psychologiczne dla osób ubiegających się lub posiadających broń</p>
+            <h1 class="header animated zoomIn">cardiocare</h1>
+            <p class="header_p animated zoomIn">Przeprowadzamy okresowe badania kierowców oraz kompleksowe badania lekarskie i psychologiczne dla osób ubiegających się lub posiadających broń</p>
         </div>
     </header>
-    <section>
-            <div class="bar1" id="o_nas">
-                <h2>o nas</h2>
-                <img class="zdjecie" src="img/hush-naidoo-382152-unsplash.jpg" alt="">
-                <p class="tekst">CardioCare Spółka z ograniczoną odpowiedzialnością jest organizacyjno-funkcjonalnym konglomeratem obejmującym swoją działalnością świadczenie szeroko pojętych usług w zakresie badań lekarskich, oraz działalność badawczo-rozwojową w zakresie opracowywania, testowania i wdrażania innowacyjnych rozwiązań medycznych. Łącząc w swojej działalności elementy zaawansowanej nauki, wspartej przez zespół wysokiej klasy uczonych specjalistów w zakresie nauk medycznych, biomedycznych i technicznych, oraz praktyki medycznej w osobach czołowych lekarzy specjalistów, stanowimy profesjonalne i w pełni wiarygodne przedsiębiorstwo realizujące liczne działania samodzielnie, lub w bliskiej współpracy z innymi, komplementarnymi jednostkami rynku usług medycznych, jak również czołowymi krajowymi i zagranicznymi ośrodkami naukowymi i badawczo-rozwojowymi.</p>
-            </div>
+    <section id="content">
 
-            <div class="parallax image_1"></div>
-            <div class="bar2" id="badania_kierowcow">
-                <h2>badania kierowców</h2>
-                <p class="tekst">Świadczymy kompleksowe usługi w zakresie obowiązkowych badań dla kandydatów na kursy prawa jazdy, oraz okresowych badań dla kierowców zawodowych. Proponujemy elastyczny grafik pracy lekarzy specjalistów, oraz wygodną lokalizację gabinetu w celu ułatwienia i przyspieszenia niezbędnych procedur z oszczędnością czasu i zniwelowaniem stresu, jaki zwykle towarzyszy załatwianiu spraw urzędowych.</p>
-            </div>
-
-
-
-            <div class="parallax image_2"></div>
-            <div class="bar3" id="pozwolenie_na_bron">
-                <h2>pozwolenie na posiadanie broni</h2>
-                <p class="tekst">Pozwolenie na posiadanie broni, zarówno w celach myśliwskich czy rekreacyjnych jak i do obrony koniecznej, wymaga przejścia specjalistycznych badań w tym czasochłonnych, ale obowiązkowych procedur psychologicznych i psychiatrycznych. Zgodnie z nowymi przepisami (akt prawny) każdy posiadacz broni podlega obowiązkowi uzupełnienia tych procedur w okresie najbliższych 5 lat. Wychodząc naprzeciw oczekiwaniom licznej grupy posiadaczy broni, organizujemy kompleksowe badania w zakresie niezbędnym, umożliwiając zamknięcie procedur w ciągu jednego dnia dzięki zgromadzeniu odpowiednich specjalistów w tym samym czasie i miejscu. </p>
-            </div>
-            
-             <div class="parallax image_3"></div>
-            <div class="bar4" id="badania">
-                <h2>działalność badawczo-rozwojowa</h2>
-                <p class="tekst">W działalności badawczo-rozwojowej skupiamy się na opracowywaniu innowacyjnych rozwiązań w zakresie metod leczenia i technik medycznych, testowaniu ich na modelach zwierzęcych, prowadzeniu obowiązkowych badań przedklinicznych i klinicznych, oraz wdrażaniu do codziennej praktyki lekarskiej. W zakresie tej działalności podejmujemy owocną współpracę z czołowymi ośrodkami naukowymi w kraju i za granicą, co pozwala poszerzyć możliwości badawcze dzięki udziałowi najwybitniejszych specjalistów w dziedzinie nauk medycznych, badań biomedycznych i zagadnień techniki medycznej, a także wykorzystaniu znakomitej infrastruktury badawczej współpracujących jednostek naukowych i przedsiębiorstw działających na rynku usług i produktów medycznych. </p>
-            </div>
     </section>
     <footer>
         <div class="parallax image_4"></div>
-        <div class="bar5" id="kontakt">
+        <div class="bar" id="kontakt">
             <div class="footer_left_bar">
                 <h2>Cardiocare Sp. z o.o.</h2>
-                <p>ul. Słowackiego 11A/6 <br> 31-159 Kraków <br><br>NIP 676254003 <br>KRS 0000714503</p>
+                <p>ul. Słowackiego 11A/6 <br> 31-159 Kraków<br>
+                 NIP 676254003 <br>KRS 0000714503<br><br><br>
+                Godziny otwarcia <br>
+                pon-pt  8-16:00<br><br>
+                Nr. tel. ??? ??? ???<br>
+                E-mail: ???????<br><br><br><br>
+                
+               </p>
             </div>
             <div class="footer_right_bar">
                 <h3>Napisz do Nas!</h3>
-                <form action="">
-                    <input type="email" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'">
-                    <textarea name="message" id="message" placeholder="Wiadomość" onfocus="this.placeholder=''" onblur="this.placeholder='Wiadomość'"></textarea>
-                    <input type="submit">
+
+
+                <form class="form" id="contactForm" action="/send-scripts.php" method="post">
+                    <div class="form-row">
+                        <label for="field-email"></label>
+                        <input id="field-email" type="email" required data-error="Wpisz poprawny email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="Email">
+                    </div>
+                    <div class="form-row">
+                        <label for="field-message"></label>
+                        <textarea name="message" id="message" required data-error="Musisz wypełnić pole" pattern=".+" placeholder="Wiadomość"></textarea>
+                    </div>
+                    <span class="form-row honey-row">
+                    <label for="honey">Jeżeli jesteś człowiekiem, nie wypełniaj tego pola</label>
+                        <input type="text" name="honey">
+                    </span>
+                    <div class="form-row">
+                        <button class="submit-btn" type="submit">Wyślij</button>
+                    </div>
                 </form>
+
             </div>
         </div>
+         <small id="copy"><a href="https://www.cezarykrawiec.pl" target="_blank">&copy;</a> Copyright 2018 CardioCare</small>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.js"></script>

@@ -1,0 +1,84 @@
+header.badania_page {
+    height: 300px;
+}
+
+#badania .tekst {
+    margin: 15px auto;
+}
+
+#articles {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.article {
+    margin: 70px auto;
+    position: relative;
+    overflow: auto;
+    width: 90%;
+}
+
+.article::before {
+    border-bottom: 1px solid #000;
+    clear: both;
+    position: absolute;
+    content: '';
+    width: 70%;
+    top: 0;
+    left: 0;
+    bottom: 10px;
+    right: 0;
+    height: auto;
+    overflow: auto;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.article::after {
+    border-bottom: 1px solid #000;
+    clear: both;
+    position: absolute;
+    content: '';
+    width: 30%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    overflow: auto;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+
+.article h3 {
+    margin: 30px;
+}
+
+.article a {
+    padding: 60px 20px 60px 0;
+    color: rgba(247, 106, 106);
+    float: right;
+    display: block; 
+}
+.article p {
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.read_more {
+    transition: all 1s ease-out;
+}
+
+.image_5 {
+    background-image: url(../img/new/ousa-chea-552189-unsplash.jpg);
+}
+
+footer.badania_page .image_4{
+    height: 300px;
+    clear: both;
+}
+
