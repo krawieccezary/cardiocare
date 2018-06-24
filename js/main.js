@@ -21,10 +21,25 @@ $(document).ready(function () {
     
     
     /*******READ MORE********/
-    $('articles button').on('click', function(){
-        $('.read_more').toggleClass('full_article');
+    
+    $('#content').on('click', '.article_btn', function(){
+        
+        var moreArticle = $(this).parent().find('.read_more');
+        moreArticle.toggleClass('full_article');
+        
+        if ($(moreArticle).hasClass('full_article')) {
+            $('.article_btn').text('Czytaj mniej..');
+        }
+        else {
+            $('.article_btn').text('Czytaj więcej..');
+        }
+        
+        
     });
 
+    
+    
+    
     /*****************STICKY NAV****************/
     var stickyNav = function () {
         var scrollY = $(window).scrollTop();

@@ -71,12 +71,15 @@
 }
 
 .read_more {
-    transition: all 1s ease-out;
-    display: none;
+    transition: max-height .3s ease-out;
+    max-height: 0;
+    overflow: hidden;
 }
 
 .full_article {
     display: block;
+    max-height: 100px;
+    transition: max-height .3s ease-out;
 }
 
 .image_5 {
