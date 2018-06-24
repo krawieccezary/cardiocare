@@ -69,12 +69,20 @@ header {
     text-align: center;
     letter-spacing: 1px;
     position: absolute;
-    top: 55%;
+    top: 50%;
     width: 100%;
     padding: 10px 15%;
     box-sizing: border-box;
     margin: 0;
     font-size: 18px;
+}
+
+header.badania_page {
+    height: 300px;
+}
+
+header.badania_page p {
+    padding: 25px 15%;
 }
 
 header nav {
