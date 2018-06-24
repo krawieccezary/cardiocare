@@ -29,7 +29,6 @@ li {
 
 header {
     height: 75%;
-    
 }
 
 .image_header {
@@ -72,7 +71,7 @@ header {
     position: absolute;
     top: 55%;
     width: 100%;
-    padding: 0 15%;
+    padding: 10px 15%;
     box-sizing: border-box;
     margin: 0;
     font-size: 18px;

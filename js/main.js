@@ -21,8 +21,8 @@ $(document).ready(function () {
     
     
     /*******READ MORE********/
-    $('articles a').on('click', function(e){
-        
+    $('articles button').on('click', function(){
+        $('.read_more').toggleClass('full_article');
     });
 
     /*****************STICKY NAV****************/
