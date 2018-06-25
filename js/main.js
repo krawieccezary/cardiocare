@@ -1,46 +1,47 @@
 $(document).ready(function () {
 
+    /****** LOAD PAGE *******/
+
     $('#content').load('pages/home.html');
 
 
     $('body').on('click', 'a', function (e) {
         var podstrona = $(this).attr('href');
+        console.log(podstrona);
         $('#content').load('pages/' + podstrona, function () {
             if (podstrona === 'badania.html') {
                 $('header, footer').addClass('badania_page');
-            }
-            else {
+            } else {
                 $('header, footer').removeClass('badania_page');
             }
-            
-                scrollTo(e);
+
+            scrollTo(e);
         });
         return false;
-        
-    });
-    
-    
-    /*******READ MORE********/
-    
-    $('#content').on('click', '.article_btn', function(){
-        
-        var moreArticle = $(this).parent().find('.read_more');
-        moreArticle.toggleClass('full_article');
-        
-        if ($(moreArticle).hasClass('full_article')) {
-            $('.article_btn').text('Czytaj mniej..');
-        }
-        else {
-            $('.article_btn').text('Czytaj więcej..');
-        }
-        
-        
+
     });
 
-    
-    
-    
+
+    /*******READ MORE********/
+
+    $('#content').on('click', '.article_btn', function () {
+
+        var moreArticle = $(this).parent().find('.read_more');
+        moreArticle.toggleClass('full_article');
+
+        if ($(moreArticle).hasClass('full_article')) {
+            $('.article_btn').text('Czytaj mniej..');
+        } else {
+            $('.article_btn').text('Czytaj więcej..');
+        }
+
+    });
+
+
+
+
     /*****************STICKY NAV****************/
+
     var stickyNav = function () {
         var scrollY = $(window).scrollTop();
         if (scrollY > 0) {
@@ -58,25 +59,27 @@ $(document).ready(function () {
         else $('.home').fadeOut(10);
     };
 
+
+
     /**SCROLL_TO**/
 
-
     var scrollTo = function (event) {
-        if (event.target.dataset.action === 'top')
+
+        if (event.target.dataset.action === 'top') {
             scrollPosition = 0;
-        else {
+        } else {
             var navBurger = $('#burger_nav');
             var heightNav = $('nav ul').css('height');
 
             if (navBurger.hasClass('active') == true) {
                 heightNav = parseInt(heightNav) + 20;
             } else {
-                heightNav = parseInt(heightNav)
+                heightNav = parseInt(heightNav) - 2;
             };
 
             var link = event.target.dataset.action;
             console.log(link);
-            
+
 
             var div = $('#' + link).offset();
             var divTop = div.top;
@@ -86,7 +89,7 @@ $(document).ready(function () {
         }
         $('html, body').animate({
             scrollTop: scrollPosition
-        }, 500);
+        }, 700);
     };
 
 
@@ -102,9 +105,9 @@ $(document).ready(function () {
         menu.classList.toggle('open');
         menuButton.classList.toggle('active');
     }
-    
-    
-     $('nav').on('click', scrollTo);
+
+    $('.home').click(scrollTo);
+
     $(window).scroll(function () {
         stickyNav();
         fadeScrollTopButton();
