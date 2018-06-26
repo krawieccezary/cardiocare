@@ -1,5 +1,13 @@
-#badania .tekst {
-    margin: 15px auto;
+#badania2 p.tekst {
+    margin: 12px auto;
+}
+
+header.badania_page {
+    height: 35%;
+}
+
+header.badania_page p {
+    padding: 25px 15%;
 }
 
 #articles {
@@ -12,6 +20,7 @@
     position: relative;
     overflow: auto;
     width: 90%;
+    height: auto;
 }
 
 .article::before {
@@ -27,6 +36,7 @@
     height: auto;
     overflow: auto;
     margin: 0 auto;
+    z-index: -1;
 }
 
 .article::after {
@@ -42,6 +52,7 @@
     height: auto;
     overflow: auto;
     margin: 0 auto;
+    z-index: -1;
 }
 
 .article h3 {
@@ -65,22 +76,25 @@
 
 .article p {
     font-size: 16px;
-    margin: 0 auto;
     text-align: justify;
     line-height: 25px;
     letter-spacing: 1px;
+    margin: default !important;
+}
+
+.article div p:nth-child(1){
+    margin-top: 0;
 }
 
 .read_more {
-    transition: max-height .3s ease-out;
+    transition: max-height .8s ease-in-out;
     max-height: 0;
     overflow: hidden;
 }
 
 .full_article {
-    display: block;
-    max-height: 100px;
-    transition: max-height .3s ease-out;
+    max-height: 1000px;
+    transition: max-height .8s ease-in-out;
 }
 
 .image_5 {
@@ -97,4 +111,10 @@ footer.badania_page .image_4{
     .article p {
         text-align: center;
     }
+}
+
+@media screen and (max-width: 640px) {
+    .article h3 {
+    text-align: center;
+}
 }

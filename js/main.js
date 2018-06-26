@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('#content').load('pages/home.html');
 
 
-    $('body').on('click', 'a', function (e) {
+    $('header, #content').on('click', 'a', function (e) {
         var podstrona = $(this).attr('href');
         console.log(podstrona);
         $('#content').load('pages/' + podstrona, function () {
