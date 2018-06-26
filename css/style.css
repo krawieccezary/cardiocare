@@ -37,6 +37,7 @@ header {
     min-height: 100%;
     width: 90%;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .image_header::before {
