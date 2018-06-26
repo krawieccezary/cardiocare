@@ -37,22 +37,20 @@ $(document).ready(function () {
 
 
         if ($(moreArticle).hasClass('full_article')) {
-            $('.article_btn').text('Czytaj mniej..');
+            $(this).text('Czytaj mniej..');
         } else {
-            $('.article_btn').text('Czytaj więcej..');
+            $(this).text('Czytaj więcej..');
 
             if ($(window).width() <= 640) {
                 var offsetTop = $(document).scrollTop();
 
                 $('html, body').animate({
                     scrollTop: offsetTop - divHeight
-                }, 700);
+                },700);
             };
         };
 
     });
-
-
 
 
     /*****************STICKY NAV****************/
