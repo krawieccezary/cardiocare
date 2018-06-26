@@ -24,16 +24,31 @@ $(document).ready(function () {
 
     /*******READ MORE********/
 
+
+
     $('#content').on('click', '.article_btn', function () {
 
         var moreArticle = $(this).parent().find('.read_more');
+
         moreArticle.toggleClass('full_article');
+
+        var divHeight = moreArticle.height();
+        console.log(divHeight);
+
 
         if ($(moreArticle).hasClass('full_article')) {
             $('.article_btn').text('Czytaj mniej..');
         } else {
             $('.article_btn').text('Czytaj więcej..');
-        }
+
+            if ($(window).width() <= 640) {
+                var offsetTop = $(document).scrollTop();
+
+                $('html, body').animate({
+                    scrollTop: offsetTop - divHeight
+                }, 700);
+            };
+        };
 
     });
 
