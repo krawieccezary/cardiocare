@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     $('header, #content').on('click', 'a', function (e) {
         var podstrona = $(this).attr('href');
-        console.log(podstrona);
+       
         $('#content').load('pages/' + podstrona, function () {
             if (podstrona === 'badania.html') {
                 $('header, footer').addClass('badania_page');
@@ -33,8 +33,7 @@ $(document).ready(function () {
         moreArticle.toggleClass('full_article');
 
         var divHeight = moreArticle.height();
-        console.log(divHeight);
-
+        
 
         if ($(moreArticle).hasClass('full_article')) {
             $(this).text('Czytaj mniej..');
@@ -91,14 +90,14 @@ $(document).ready(function () {
             };
 
             var link = event.target.dataset.action;
-            console.log(link);
+           
 
 
             var div = $('#' + link).offset();
             var divTop = div.top;
 
             var scrollPosition = divTop - heightNav;
-            console.log(scrollPosition);
+            
         }
         $('html, body').animate({
             scrollTop: scrollPosition
@@ -203,6 +202,8 @@ form.addEventListener('submit', e => {
 
         const url = form.getAttribute('action');
         const method = form.getAttribute('method');
+        
+        console.log(url);
 
         fetch(url, {
                 method: method.toUpperCase(),
