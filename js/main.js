@@ -128,8 +128,6 @@ $(document).ready(function () {
 });
 
 
-
-
 /****FORMULARZ*****/
 
 const form = document.querySelector('#contactForm');

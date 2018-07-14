@@ -3,7 +3,7 @@
 }
 
 header.badania_page {
-    height: 35%;
+    height: 40%;
 }
 
 header.badania_page p {
@@ -118,3 +118,12 @@ footer.badania_page .image_4{
     text-align: center;
 }
 }
+
+/*
+@media screen and (max-width: 490px) {
+    
+
+header.badania_page p {
+    top: 105%;
+}
+} */
