@@ -150,6 +150,14 @@ nav.sticky a::before {
     background-color: #fff;
 }
 
+header nav ul li.active a::before,
+nav.sticky ul li.active a::before {
+    visibility: visible;
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1);
+}
+
 .home {
     background: url(../img/arrow_up.jpg) no-repeat center center;
     height: 40px;
@@ -263,7 +271,7 @@ h2::after {
     -webkit-filter: brightness(130%);
 }
 
-#badania a.badania_link {
+#badania-intro a.badania_link {
     text-align: right;
     margin: 10% 15% 0;
     padding: 0;
