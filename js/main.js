@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
-
 /****** LOAD PAGES *******/
 
 var loadPages = function (callback) {
-    $('#cardiocare-o-nas').load('cardiocare-o-nas.html');
+
+    $('#cardiocare-o-nas').load('cardiocare-o-nas.php');
     $('#badania-kierowcow-krakow').load('badania-kierowcow-krakow.html');
     $('#badania-na-bron-krakow').load('badania-na-bron-krakow.html');
-    $('#dzialalnosc-badawczo-rozwojowa-krakow').load('dzialalnosc-badawczo-rozwojowa-krakow.html');
+    $('#dzialalnosc-badawczo-rozwojowa').load('dzialalnosc-badawczo-rozwojowa.html');
     $('#cardiocare-kontakt-krakow').load('cardiocare-kontakt-krakow.html');
 
     if (callback) {
@@ -18,105 +18,86 @@ var loadPages = function (callback) {
 loadPages();
     
 
-/*
-$('header, #content').on('click', 'a', function (e) {
-    e.preventDefault();
-
-        var podstrona = $(this).attr('href');
-
-      //  var podstronaLength = podstrona.length;
-      //  var url = podstrona.slice(0, podstronaLength - 5);
-
-        var currentURL = window.location.href;
-
-
-        if (podstrona === '#dzialalnosc-badawczo-rozwojowa') {
-            $('#content').load(podstrona, function () {
-                //$('header, footer').addClass('badania_page');
-
-                scrollTo(e);
-            });
-        } else {
-
-            if (currentURL.search('dzialalnosc-badawczo-rozwojowa') !== -1) {
-
-                $('#content').load('index.html #content > *', function () {
-                    loadPages(function () {
-                        $('header, footer').removeClass('badania_page');
-
-
-                        //  var scrollY = $(window).scrollTop();
-                        //    console.log('window: ', scrollY);
-                        scrollTo(e);
-                    });
-                });
-            } else {
-                scrollTo(e);
-            }
-        };
-
-    switch_nav_active(window.location.href);
-
-    return false;
-});
-};
-
-*/
 $(function () {
 
     
 /**** RELOAD PAGES ****/
 
 function reloadPages() {
+
     
     $('header, #content').on('click', 'a.link', function (e) {
+        e.preventDefault();
         
         var link = $(this).attr('href');
         var currentURL = window.location.href;
         var target = e.target;
-       
         
-        if ( link === '#dzialalnosc-badawczo-rozwojowa') {
+        var idDiv = link.slice(0, link.length-5)
+        var div = $('#' + idDiv);
+       console.log(target);
+        
+        if ( link === 'dzialalnosc-badawczo-rozwojowa-krakow.html') {
 
-            $('#content').load('dzialalnosc-badawczo-rozwojowa.html', function(){
+            $('#content').load('dzialalnosc-badawczo-rozwojowa-krakow.html', function(){
                 scrollTo(target);
+                $('a.badania').attr('href', 'dzialalnosc-badawczo-rozwojowa-krakow.html');
             });
 
         } else {
-             console.log(currentURL);
-            if (currentURL.search('#dzialalnosc-badawczo-rozwojowa') !== -1) {
+                
+                if (div) {
+                    console.log('yess');
+                    scrollTo(target);
+                }
                
-                $('#content').load('index.html #content > *', function () {
-                    loadPages(function () {
-                        $(document).ready(function(){
-                        scrollTo(target);
-                            });
+                else {
+                    console.log(div);
+                    console.log('nooo');
+                    $('#content').load('index.html #content > *', function () {
+
+                        loadPages(function () {
+                            $('a.badania').attr('href', 'dzialalnosc-badawczo-rozwojowa.html');
+                            $(document).scrollTop(0);
+                            $(document).ready(function(){
+                            scrollTo(target);
+                                });
+                        });
                     });
-                });
-            } else {
-                scrollTo(target);
-            };
+                };
         };
+    
     });
 };
     
     reloadPages();
+    
+
+    
+    
+    /****************************
+        **SCROLL_TO**
+ *****************************/
 
 
-/****************************
-    **SCROLL_TO**
-*****************************/
+    var checkClick = false;
 
+     function scrollTo(navLink) {
+         
+     //    console.log(navLink);
+       //  console.log(location.hostname);
+    //     console.log(navLink.pathname.replace(/^\//, ''));
 
-    function scrollTo(navLink) {
+        if (location.hostname === navLink.hostname) {
+            
+            var link = navLink;
+            checkClick = true;
+            switchNav(checkClick, link);
 
-
-        if (location.pathname.replace(/^\//, '') === navLink.pathname.replace(/^\//, '') && location.hostname === navLink.hostname) {
-
-            var target = navLink.hash;
-            var idDiv = $(navLink.hash);
-
-
+            var linkHref = $(navLink).attr('href');
+            var idDiv = linkHref.slice(0, linkHref.length-5)
+            var div = $('#' + idDiv);
+            console.log(div);
             var navBurger = $('#burger_nav');
             var heightNav = $('nav ul').css('height');
 
@@ -126,149 +107,105 @@ function reloadPages() {
                 heightNav = parseInt(heightNav)
             };
 
-            var divTop = idDiv.offset().top;
-            console.log(divTop);
+            var divTop = div.offset().top;
+          //  console.log(divTop);
             scrollPosition = divTop - heightNav;
 
             if (idDiv.length) {
                 $('html, body').animate({
                     scrollTop: scrollPosition,
-                }, 1000);
-                return false;
+                }, 800, function () {
+                    checkClick = false;
+                });
             };
+        };
+    };
 
-        };  
-    };                  
+                           
+
+    /************************************
+     ********SWITCH NAV+URL CURRENT*******
+     *************************************/
+
+    function switchNav(checkClick, link) {
+
+        var navLinks = $('nav a.link');
+   //     console.log(navLinks);
+        var divTop;
+        var currentURL = '';
+
+        if (checkClick) {
+            
+            currentURL = $(link).attr('href');
+            history.pushState(currentURL, null, currentURL);
+            $('nav ul li').removeClass('current');
+            if ($(link).hasClass('badania_link')) {
+                $('a.badania').parent().addClass('current');
+            }
+            else {
+            $(link).parent().addClass('current');
+            }
+            
+        } else {
+
+            $(navLinks).each(function () {
+
+                var divLink = $(this).attr('href');
+                
+                var idDiv = divLink.slice(0, divLink.length-5);
+               // console.log(idDiv);
+                
+                var div = $('#' + idDiv);
+
+               if (divLink.length) {
+                    divTop = $(div).offset().top;
+                }
+
+                    var scrollY = $(window).scrollTop();
+                    var distance = Math.abs(scrollY - divTop);
+                    var endScrollY = $(window).height();
+                    var hash = location.href;
+                
+                    if (hash.search('dzialalnosc-badawczo-rozwojowa-krakow') !== -1) {
+                        $('a.badania').parent().addClass('current');
+                    }
+                
+                    else {
+
+                        if (distance < 70 && hash.search(currentURL) === 0) {
+
+                           // console.log(hash.search(currentURL));
+                          //  console.log(hash);
+                          //  console.log(divLink);
+                            currentURL = divLink;
+                            $('nav ul li').removeClass('current');
+                            $(this).parent().addClass('current');
+                            history.pushState(null, null, currentURL);
+                            
+                        };
+                }; 
+
+            });
+        };
+    };
+
+    $(window).scroll(function () {
+        if (!checkClick) {
+            switchNav(checkClick);
+        };
+    });
+    
+    
+    $(window).on('popstate', function (e) {
+    var state = e.originalEvent.state;
+    if (state !== null) {
+        //load content with ajax
+        loadPages();
+    }
+});
 });
     
 
-
-/************************************
- ********SWITCH NAV+URL CURRENT*******
- *************************************/
-
-$(document).ready(function () {
-
-    var navLinks = $('a.link');
-
-    var currentScroll = 0;
-    var divTop;
-
-    var currentURL = '';
-    $(window).scroll(function () {
-
-
-        $(navLinks).each(function () {
-
-            var divLink = $(this).attr('href');
-
-            if ($(divLink).length) {
-                divTop = $(divLink).offset().top; 
-            }
-
-            var scrollY = $(window).scrollTop();
-            //console.log(scrollY);
-            var distance = Math.abs(scrollY - divTop);
-            //console.log(distance);
-
-
-            if ((distance < 60 || scrollY + $(window).height() == $(document).height) && divLink != currentURL) {
-                currentURL = divLink;
-                $('nav ul li').removeClass('current');
-                $(this).parent().addClass('current');
-                history.pushState(null, null, currentURL);
-            };
-        });
-    });
-});
-
-
-
-/**** SWITCH NAV CURRENT ****
-
-var switch_nav_active = function (pathname) {
-    $('header nav ul > li').removeClass('current');
-    var $currentItem = $("");
-    //console.log('path: ', pathname);
-    $('header nav ul > li').each(function () {
-        var link_length = $(this).length;
-        var url = $(this).find("a").attr("href").slice(0, link_length - 6);
-        // console.log('url: ', url);
-        if (pathname.search(url) !== -1)
-            $currentItem = $(this);
-    });
-    // console.log($currentItem);
-    $currentItem.addClass('current');
-};
-
-
-
-
-/**** SCROLL CHANGE URL ****
-
-$(document).scroll(function () {
-    var currentURL = '';
-    var scrollY = $(window).scrollTop();
-
-     if (scrollY == 0) {
-            currentURL = entryURL;
-            history.pushState(null, null, currentURL);
-            $('header nav ul > li').each(function () {
-                $(this).removeClass('current');
-            });
-        };
-
-    $('div.bar').each(function () {
-        var distance = scrollY - $(this).offset().top;
-        var url = $(this).attr('data-link');
-
-
-        if (distance < 50 && distance > -50 && currentURL != url) {
-            currentURL = url;
-            history.pushState(null, null, currentURL);
-            switch_nav_active(currentURL);
-        };
-    });
-});
-
-
-
-
-/**SCROLL_TO**
-
-var scrollTo = function (event) {
-
-    if (event.target.dataset.action === 'top') {
-        scrollPosition = 0;
-
-        $('header nav ul > li').each(function () {
-            $(this).removeClass('current');
-        });
-
-    } else {
-        var navBurger = $('#burger_nav');
-        var heightNav = $('nav ul').css('height');
-
-        if (navBurger.hasClass('active') == true) {
-            heightNav = parseInt(heightNav) + 20;
-        } else {
-            heightNav = parseInt(heightNav) - 2;
-        };
-
-        var link = event.target.dataset.action;
-
-        var div = $('#' + link).offset();
-        var divTop = div.top;
-
-        //   console.log('divTop:', link, divTop);
-
-        var scrollPosition = divTop - heightNav;
-
-    }
-    $('html, body').animate({
-        scrollTop: scrollPosition
-    }, 700);
-};
 
 
 

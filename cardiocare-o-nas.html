@@ -8,13 +8,37 @@
     <meta name="keywords" content="badania, broń, bron, pozwolenie, badania kierowcow, badania okresowe">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CardioCare - O nas</title>
-    <link rel="next" href="badania-kierowcow-krakow">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        
+        function chceckURL(){
+            
+            console.log(window.location.href);    
+        console.log('origin: ', window.location.origin);    
+        console.log(window.location.hostname);    
+        console.log('path: ', window.location.pathname);   
+        var pathname = window.location.pathname; 
+        var url = window.location.origin + pathname.slice(0,21);
+        var section = pathname.slice(21, pathname.length);
+        console.log('section: ', section);
+        console.log('url: ', url); 
+            var zmienna = <?php echo $aktualnyURL; ?>
+            console.log('URLLLLL: ', zmienna);
+            location.replace()
+            
+                console.log(url);
+                 if (window.location.href !== url)  {
     
+                     window.location.replace(url);
+                 }; 
+        };
+    </script>
 </head>
 
 <body>
     <h2>o nas</h2>
    <!-- <img class="zdjecie" src="../img/cardiocare-o-nas.jpg" alt=""> -->
     <p class="tekst">CardioCare Spółka z ograniczoną odpowiedzialnością jest organizacyjno-funkcjonalnym konglomeratem obejmującym swoją działalnością świadczenie szeroko pojętych usług w zakresie badań lekarskich, oraz działalność badawczo-rozwojową w zakresie opracowywania, testowania i wdrażania innowacyjnych rozwiązań medycznych. Łącząc w swojej działalności elementy zaawansowanej nauki, wspartej przez zespół wysokiej klasy uczonych specjalistów w zakresie nauk medycznych, biomedycznych i technicznych, oraz praktyki medycznej w osobach czołowych lekarzy specjalistów, stanowimy profesjonalne i w pełni wiarygodne przedsiębiorstwo realizujące liczne działania samodzielnie, lub w bliskiej współpracy z innymi, komplementarnymi jednostkami rynku usług medycznych, jak również czołowymi krajowymi i zagranicznymi ośrodkami naukowymi i badawczo-rozwojowymi.</p>
+
 </body>
 </html>

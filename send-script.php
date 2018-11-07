@@ -1,7 +1,8 @@
 <?php
 error_reporting(0);
 
-$mailToSend = 'biuro@cardiocare.com.pl';
+//$mailToSend = 'biuro@cardiocare.com.pl';
+$mailToSend = 'krawiec.cezary7@gmail.com';
 
 if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 	$email      = $_POST['email'];
